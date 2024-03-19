@@ -69,3 +69,10 @@ model Session {
   user      User   @relation(fields: [user_id], references: [id])
   user_id    Int
 }
+
+model Waiter {
+  id          Int   @id @default(autoincrement())
+  email       String    @unique
+  name       String
+  created_at  DateTime    @default(now())
+}
