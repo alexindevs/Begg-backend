@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use("/auth", require("./modules/auth/auth.routes"));
-app.use("/waitlist", require("./modules/auth/waitlist.routes"));
+app.use("/waitlist", require("./modules/waitlist/waitlist.routes"));
 
 app.get("/", (req, res) => {
   res.send("Hello, World!");
