@@ -17,10 +17,10 @@ export default class WaitlistService {
     async getWaiterById(id: number): Promise<any> {
         try {
             const waiter = await waitlistRepo.getWaiterById(id);
-            return waiter
+            return waiter;
         } catch (error:any) {
             logger.error(error.message, {module: "waitlistService", function: "getWaiterById", error: error});
-            throw error
+            throw error;
         }
     }
 
@@ -35,7 +35,17 @@ export default class WaitlistService {
             return { waiter };
         } catch (error:any) {
             logger.error(error.message, {module: "WaitlistService", function: "createWaiter", error: error});
-            throw error
+            throw error;
+        }
+    }
+
+    async getWaitlist(): Promise<any> {
+        try {
+            const waitlist = await waitlistRepo.getWaitlist();
+            return waitlist;
+        } catch (error:any) {
+            logger.error(error.message, {module: "WaitlistService", function: "getWaitlist"});
+            throw error;
         }
     }
 }

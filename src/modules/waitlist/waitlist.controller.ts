@@ -33,4 +33,13 @@ export default class WaitlistController {
             res.status(500).json({ error: error.message });
         }
     }
+
+    async getWaitlist(req: Request, res: Response) {
+        try {
+            const waitlist = await waitlistService.getWaitlist();
+            res.status(201).json(waitlist);
+        } catch (error: any) {
+            res.status(500).json({ error: error.message });
+        }
+    }
 }
