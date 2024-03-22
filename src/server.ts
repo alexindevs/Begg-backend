@@ -11,11 +11,8 @@ const port = process.env.PORT || 7000;
 app.use(bodyParser.json());
 app.use(cors());
 
-import AuthRouter from "./modules/auth/auth.routes";
-import WaitlistRouter from "./modules/waitlist/waitlist.routes";
-
-app.use("/auth", AuthRouter);
-app.use("/waitlist", WaitlistRouter);
+app.use("/auth", require("./modules/auth/auth.routes"));
+app.use("/waitlist", require("./modules/waitlist/waitlist.routes"));
 
 app.get("/", (req, res) => {
   res.send("Hello, World!");

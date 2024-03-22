@@ -11,4 +11,4 @@ AuthRouter.post('/login', authController.login);
 AuthRouter.post('/logout/:id', authController.logout);
 AuthRouter.delete('/user/:id', authController.destroyUser);
 
-export default AuthRouter;
+module.exports = AuthRouter;

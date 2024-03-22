@@ -27,4 +27,8 @@ export default class WaitlistRepository {
             }
         })
     }
+
+    async getWaitlist(): Promise<Waiter[] | null> {
+        return await prisma.waiter.findMany();
+    }
 }
