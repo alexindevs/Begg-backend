@@ -1,0 +1,17 @@
+{"date":"20240322","time":"11:12:30","level":"info","module":"AuthService","message":"User created successfully"}
+{"date":"20240322","time":"11:15:53","level":"error","module":"AuthService","message":"\nInvalid `prisma.user.delete()` invocation in\n/home/alexin/Desktop/work/Begg-backend/src/modules/auth/auth.repository.ts:39:40\n\n  36 }\n  37 \n  38 async deleteUser (id: number): Promise<User | null> {\n→ 39     return await prisma.user.delete(\nForeign key constraint failed on the field: `RefreshToken_user_id_fkey (index)`"}
+{"date":"20240322","time":"11:38:25","level":"info","module":"AuthService","message":"User created successfully"}
+{"date":"20240322","time":"11:41:25","level":"info","module":"AuthService","message":"User created successfully"}
+{"date":"20240322","time":"11:43:33","level":"info","module":"AuthService","message":"User created successfully"}
+{"date":"20240322","time":"12:07:26","level":"info","module":"AuthService","message":"User created successfully"}
+{"date":"20240322","time":"12:12:59","level":"info","module":"AuthService","message":"User created successfully"}
+{"date":"20240322","time":"12:14:47","level":"error","module":"AuthService","message":"\nInvalid `prisma.user.delete()` invocation in\n/home/alexin/Desktop/work/Begg-backend/src/modules/auth/auth.repository.ts:53:46\n\n  50         }\n  51     });\n  52 }\n→ 53 const user = await prisma.user.delete(\nAn operation failed because it depends on one or more records that were required but not found. Record to delete does not exist."}
+{"date":"20240322","time":"12:15:15","level":"info","module":"AuthService","message":"User created successfully"}
+{"date":"20240322","time":"12:17:03","level":"error","module":"AuthService","message":"User not found"}
+{"date":"20240322","time":"12:17:12","level":"error","module":"AuthService","message":"User not found"}
+{"date":"20240322","time":"12:17:22","level":"info","module":"AuthService","message":"User logged in successfully"}
+{"date":"20240322","time":"12:18:29","level":"info","module":"AuthService","message":"User logged in successfully"}
+{"date":"20240322","time":"12:18:59","level":"info","module":"AuthService","message":"User logged in successfully"}
+{"date":"20240322","time":"12:19:20","level":"info","module":"AuthService","message":"User logged in successfully"}
+{"date":"20240322","time":"12:21:41","level":"info","module":"AuthService","message":"User logged in successfully"}
+{"date":"20240322","time":"12:22:06","level":"info","module":"AuthService","message":"User logged in successfully"}

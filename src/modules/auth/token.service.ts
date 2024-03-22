@@ -15,7 +15,7 @@ class AccessTokenGenerator {
     this.userModel = new AuthRepository();
   }
 
-  public async generate(userId: number): Promise<{ accessToken: string; user: IPublicUser} | null> {
+  public async generate(userId: number): Promise< string | null> {
     try {
       const user = await this.userModel.getUserById(userId);
 
@@ -25,12 +25,13 @@ class AccessTokenGenerator {
         const accessToken = jwt.sign({ user: userWithoutPassword }, this.secret, {
           expiresIn: this.expiresIn,
         });
+        console.trace(accessToken, userWithoutPassword)
 
-        return {accessToken, user: userWithoutPassword};
+        return accessToken;
+      } else {
+        return null;
       }
-
-      return null;
-    } catch (error) {
+        } catch (error) {
       console.log('error:', error);
       return null;
     }

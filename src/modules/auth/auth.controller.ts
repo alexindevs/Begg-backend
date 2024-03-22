@@ -28,7 +28,7 @@ export default class AuthController {
         try {
             const { username, email, password, account_type } = req.body;
             const newUser = await authService.createUser(username, email, password, account_type);
-            res.status(201).json(newUser);
+            res.status(201).json({data: newUser});
         } catch (error: any) {
             res.status(500).json({ error: error.message });
         }

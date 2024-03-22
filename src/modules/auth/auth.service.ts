@@ -58,9 +58,10 @@ export default class AuthService {
             }
             password = await bcrypt.hash(password, 10)
             const user = await authRepo.createNewUser({username, email, password, account_type});
-            const accessToken = ATG.generate(user.id);
+            const accessToken = await ATG.generate(user.id);
             await authRepo.createNewToken(user.id)
             logger.info("User created successfully", {module: "AuthService", function: "createUser", data: user.id});
+            console.trace(accessToken)
             return {user, token: accessToken};
         } catch (error:any) {
             logger.error(error.message, {module: "AuthService", function: "createUser", error: error});
@@ -78,7 +79,7 @@ export default class AuthService {
             if (!isPasswordValid) {
                 throw new Error("Incorrect password");
             }
-            const accessToken = ATG.generate(user.id);
+            const accessToken = await ATG.generate(user.id);
             await authRepo.updateToken(user.id)
             logger.info("User logged in successfully", {module: "AuthService", function: "login", data: user.id});
             return {user, token: accessToken};

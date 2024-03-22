@@ -35,13 +35,28 @@ export default class AuthRepository {
         })
     }
 
+    /**
+     * Deletes a user by ID.
+     * 
+     * @param {number} id - The ID of the user to delete.
+     * @return {Promise<User | null>} The deleted user or null if not found.
+     */
     async deleteUser (id: number): Promise<User | null> {
-        return await prisma.user.delete({
+      const refreshToken = await this.getTokenByUserId(id);
+        if (refreshToken) {
+            await prisma.refreshToken.delete({
+                where: {
+                    id: refreshToken.id
+                }
+            });
+        }
+        const user = await prisma.user.delete({
             where: {
                 id: id
             }
-        })
-    }
+        });
+        return user;
+      }
 
     async updatePassword(id: number, password: string): Promise<User | null> {
         return await prisma.user.update({
@@ -134,7 +149,7 @@ export default class AuthRepository {
     
           return newToken;
         } catch (error) {
-          console.error('Error creating token:', error);
+          console.error('Error creating token:', error)
           return null;
         }
       }
